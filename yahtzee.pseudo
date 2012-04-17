@@ -1,0 +1,43 @@
+Arduino Yahtzee
+
+Hardware Requirements
+	Arduino
+	LCD-Screen [7 pins]
+	6 buttons (5 die selectors, roll) [6 pins]
+	Speaker [1 pin]
+
+Software
+	setup	"Before all games are played"
+		Set pin states for buttons
+		Initialize LCD
+		Set pin state for speaker
+		Welcome
+
+	loop	"One loop per game"
+		# Before
+		How many players (max 10)? (up/down scroll on d1/d2, enter)
+		Reset scores
+		
+		# During Turns (up to 3 rolls), 13 turns
+		Loop through 13 turns
+			Loop through each player
+				Loop through 3 rolls
+					Roll
+					Display dice
+					Select holds	# First 2 rolls only
+					Select roll		# First 2 rolls only
+				Choose scoring line (up/down scroll on d1/d2, enter)
+				Calculate score
+				Update player score
+				Display player score (hold for enter)
+			Display full scoreboard (multiple players)
+									(up/down scroll on d1/d2, enter)
+		# After
+		Determine winner (multiple players)
+		High Score (possible hi-score new record celebration)
+		Play again/Quit?
+
+Future
+	In-game documentation
+	Computer player
+	Add personalized names to players
